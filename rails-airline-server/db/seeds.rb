@@ -1,7 +1,35 @@
 # AIRPLANES
+Airplane.destroy_all
+
+
+Airplane.create!(
+    name: 'Boeing 757',
+    seating_row: 24,
+    seating_column: 6
+)
+
+<<<<<<< HEAD
+=======
+Airplane.create!(
+    name: 'Airbus' ,
+    seating_row: 24,
+    seating_column: 6
+)
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> 6a76eab91986d9fe4b45eb0b7520d52fed813393
 # FLIGHTS
 Flight.destroy_all
 
@@ -33,8 +61,7 @@ f2 = Flight.create!(
 
 
 
-# RESERVATION
-
+# USERS
 
 
 
