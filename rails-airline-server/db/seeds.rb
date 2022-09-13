@@ -38,9 +38,9 @@ f2 = Flight.create!(
 
 # USERS
 User.destroy_all
-User.create! name: ‘Admin’,     email: ‘Admin@user.com’,    admin: true
-User.create! name: ‘Luke’,      email: ‘Luke@user.com’,     admin: false
-User.create! name: ‘Kris’,      email: ‘Kris@user.com’,     admin: false
+User.create! name: 'Admin',     email: 'Admin@user.com',    admin: true
+User.create! name: 'Luke',      email: 'Luke@user.com',     admin: false
+User.create! name: 'Kris',      email: 'Kris@user.com',     admin: false
 
 
 
