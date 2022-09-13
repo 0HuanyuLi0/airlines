@@ -3,7 +3,7 @@ class CreateAirplanes < ActiveRecord::Migration[5.2]
     create_table :airplanes do |t|
       t.string :name
       t.integer :seating_row
-      t.string :seating_column
+      t.integer :seating_column
 
       t.timestamps
     end
