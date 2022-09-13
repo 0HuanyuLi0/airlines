@@ -44,21 +44,3 @@ User.create! name: 'Kris',      email: 'Kris@user.com',     admin: false
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-# USERS
-
-
-
-
