@@ -1,0 +1,20 @@
+<h3>All Airplanes</h3>
+
+<h4>New Airplane</h4>
+
+
+<ul>
+    <% @airplanes.each do |airplane| %>
+
+    <li>
+        Airplane: <%= airplane.name %>
+        <br>
+        Row: <%= airplane.seating_row %>
+        <br>
+        Column: <%= airplane.seating_column %>
+        <br>
+        <%= link_to 'Delete', "/airplanes/#{airplane.id}",method:'delete' %>
+    </li>
+
+    <% end %>
+</ul>
