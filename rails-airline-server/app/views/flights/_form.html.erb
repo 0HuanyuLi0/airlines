@@ -1,0 +1,28 @@
+
+
+
+<%= form_with url:'/flights', local:true do |f| %>
+
+<%= f.label :flight_number%>
+<br>
+<%= f.number_field :flight_number, required:true%>
+<br><br>
+
+<%= f.label :origin, 'From' %>
+<br>
+<%= f.text_field :origin%>
+<br><br>
+
+<%= f.label :destination, 'To' %>
+<br>
+<%= f.text_field :destination%>
+<br><br>
+
+<%= f.label :departure_date %>
+<br>
+<%= f.date_field :departure_date%>
+<br><br>
+
+<%= f.submit 'Create'%>
+
+<% end %>
