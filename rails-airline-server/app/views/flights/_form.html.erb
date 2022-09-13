@@ -23,6 +23,20 @@
 <%= f.date_field :departure_date%>
 <br><br>
 
+<select name="airplane_id">
+    <option value="" disabled selected>--Please choose an Airplane--</option>
+
+    <%= @airplanes.each do |airplane| %>
+
+    <option value=<%= airplane.id %>>
+        <%= airplane.name %>
+    </option>
+    <% end %>
+
+
+</select>
+<br><br>
+
 <%= f.submit 'Create'%>
 
 <% end %>

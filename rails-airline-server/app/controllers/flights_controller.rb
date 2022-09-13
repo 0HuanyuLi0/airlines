@@ -1,7 +1,8 @@
 class FlightsController < ApplicationController
 
     def index
-        @flights = Flight.all
+        @flights = Flight.all.reverse
+        @airplanes = Airplane.all
     end
 
     def create
@@ -17,7 +18,7 @@ class FlightsController < ApplicationController
 
     private
     def flights_params
-        params.permit(:flight_number, :origin, :destination, :departure_date)
+        params.permit(:flight_number, :origin, :destination, :departure_date,:airplane_id)
     end
 
 
