@@ -1,0 +1,21 @@
+
+<h3>All Flights</h3>
+
+<h4>New Flight</h4>
+<%= render partial: 'form' %>
+
+<ul>
+    <% @flights.each do |flight| %>
+
+    <li>
+        Flight: <%= flight.flight_number %>
+        <br>
+        Date: <%= flight.departure_date %>
+        <br>
+        From > To: <%= flight.origin %> > <%= flight.destination %>
+        <br>
+        <%= link_to 'Delete', "/flights/#{flight.id}",method:'delete' %>
+    </li>
+
+    <% end %>
+</ul>
