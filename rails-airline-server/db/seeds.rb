@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # AIRPLANES
 
 
@@ -53,3 +54,5 @@ Flight.create!(
 
 
 
+=======
+>>>>>>> 0362667f43dd7873461afd43ddf8ba38b210aacf
