@@ -1,27 +1,20 @@
 
 
 
-<%= form_with url:'/flights', local:true do |f| %>
+<%= form_with url:'/flights', class:'border-form', local:true do |f| %>
 
-<%= f.label :flight_number%>
-<br>
-<%= f.number_field :flight_number, required:true%>
-<br><br>
 
-<%= f.label :origin, 'From' %>
-<br>
-<%= f.text_field :origin%>
-<br><br>
+<%= f.number_field :flight_number, required:true, placeholder:"flight #"%>
 
-<%= f.label :destination, 'To' %>
-<br>
-<%= f.text_field :destination%>
-<br><br>
 
-<%= f.label :departure_date %>
-<br>
-<%= f.date_field :departure_date%>
-<br><br>
+<%= f.text_field :origin, required:true, placeholder:"from"%>
+
+
+<%= f.text_field :destination, required:true, placeholder:"to"%>
+
+
+<%= f.date_field :departure_date, required:true, placeholder:"date"%>
+
 
 <select name="airplane_id">
     <option value="" disabled selected>--Please choose an Airplane--</option>
