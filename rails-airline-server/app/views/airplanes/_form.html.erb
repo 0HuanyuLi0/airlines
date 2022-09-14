@@ -1,0 +1,28 @@
+<%= form_with url:'/airplanes', local:true do |f| %>
+
+
+<%= f.label :name %>
+<br>
+<%= f.text_field :name %>
+<br><br>
+
+
+<%= f.label :seating_row%>
+<br>
+<%= f.number_field :seating_row%>
+<br><br>
+
+<%= f.label :seating_column%>
+<br>
+<%= f.number_field :seating_column%>
+<br><br>
+
+
+
+
+
+<br><br>
+
+<%= f.submit 'Create New Airplane'%>
+
+<% end %>

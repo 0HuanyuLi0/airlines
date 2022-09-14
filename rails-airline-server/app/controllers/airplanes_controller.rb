@@ -2,6 +2,8 @@ class AirplanesController < ApplicationController
 
     def new
         @airplane = Airplane.new
+       
+        
     end
 
     def create
@@ -12,6 +14,7 @@ class AirplanesController < ApplicationController
     
     def index
         @airplanes = Airplane.all
+        
     end
 
     def show
@@ -30,5 +33,6 @@ class AirplanesController < ApplicationController
         params.permit(:name, :seating_row, :seating_column)
     end
 
+    
 
 end
