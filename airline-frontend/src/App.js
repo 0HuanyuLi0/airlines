@@ -1,5 +1,4 @@
-import logo from './logo.svg';
-// import './App.css';
+import './App.css';
 import './css/flights.css'
 import Reservation from './components/reservation';
 import Search from './components/search';

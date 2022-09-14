@@ -1,4 +1,4 @@
-// import '../App.css';
+import '../App.css';
 
 import React from 'react';
 import axios from 'axios';
@@ -116,7 +116,7 @@ class Search extends React.Component {
         return (
             <div className="App">
 
-                <h2 className='red-title'>Angel Airlines</h2>
+                
                 <SearchForm notifyParent={this.postFlightDetails} />
                 <h3 className='sub-title'>Flights</h3>
                 <div className="col-title">
