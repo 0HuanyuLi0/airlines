@@ -21,4 +21,8 @@ Rails.application.routes.draw do
   post '/reservations' => 'reservations#create'
   delete '/reservations/:id' => 'reservations#destroy'
 
+  get '/bob/reservations/:id' => 'reservations#bookInfo'
+
+  
+
 end

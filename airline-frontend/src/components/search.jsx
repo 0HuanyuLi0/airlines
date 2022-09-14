@@ -63,6 +63,7 @@ class Search extends React.Component {
 
         console.log(`componentDidMount()`);
         this.fetchFlights();
+        this.fetchBookings('14')
         // setInterval(this.fetchFlights,2000)
 
     }       // componentDidMount()
@@ -71,7 +72,7 @@ class Search extends React.Component {
 
         try {
             const response = await axios.get(RAILS_ANGEL_AIRLINES_FLIGHTS);
-            console.log(`response`, response.data);
+            // console.log(`response`, response.data);
 
             this.setState({
                 flights: response.data.flights,
@@ -91,6 +92,26 @@ class Search extends React.Component {
 
     }           //  fetchFlights()
 
+    fetchBookings = async (flightID) => {
+
+        try {
+            const response = await axios.get(`http://localhost:3000/bob/reservations/${flightID}`);
+            console.log(`response`, response.data);
+
+        } catch (error) {
+
+            this.setState({
+                loading: false,
+                error: error
+            })  //  this.setState
+
+        }       //  catch
+
+    }           //  fetchBookings()
+
+
+    
+
     render() {
         return (
             <div className="App">
@@ -101,7 +122,7 @@ class Search extends React.Component {
                 <div className="col-title">
                     <p>Date</p>
                     <p>Flight</p>
-                    <p>From > To</p>
+                    <p>From {'>'} To</p>
                     <p>Plane</p>
                     <p>Seats</p>
                 </div>
