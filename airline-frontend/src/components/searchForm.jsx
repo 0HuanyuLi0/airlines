@@ -3,9 +3,15 @@ import React from 'react';
 
 class SearchForm extends React.Component {
 
+    state = {
+        secretText: ''
+    };      //  state
+
     handleSubmit = ( event ) => {
-        event.preventDefault();     //      Stops form from auto-reloading page on submits
-    }
+        event.preventDefault();         //  Stops form from auto-reloading page on submits
+        console.log(`Form submitted`, this.state.secretText);
+        
+    };      //  handleSubmit
 
     render (){
 
@@ -17,13 +23,13 @@ class SearchForm extends React.Component {
                 <input type="text" placeholder='Ending Destination'/>
                 <button>Search For Flights</button>
             </form>
-        );
+        );  // return()
 
 
-    } // render
+    }       // render
 
 
-} // class SearchForm
+}           // class SearchForm
 
 
 export default SearchForm;
