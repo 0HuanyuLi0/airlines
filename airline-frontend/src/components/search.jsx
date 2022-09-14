@@ -105,18 +105,18 @@ class Search extends React.Component {
                     <p>Plane</p>
                     <p>Seats</p>
                 </div>
+
                 {
                     this.state.loading
-                        ?
-                        <p>Loading Flights . . .</p>
-                        :
-                        <ul className='table'>
-                            {this.state.flights.map(f => <FlightInformation key={f.id} flight={f} airplane={this.state.airplanes.find(a => a.id === f.airplane_id)} />)}
-                        </ul>
+                    ?
+                    <p>Loading Flights . . .</p>
+                    :
+                    <ul className='table'>
+                        {this.state.flights.map(f => <FlightInformation key={f.id} flight={f} airplane={this.state.airplanes.find(a => a.id === f.airplane_id)} />)}
+                    </ul>
 
                 }
 
-                {/* < Route exact path="/" component={ Search }/> */}
             </div>
         );  // return
 
