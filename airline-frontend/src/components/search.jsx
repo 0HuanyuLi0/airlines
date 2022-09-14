@@ -1,4 +1,8 @@
+import '../App.css';
+
 import React from 'react';
+import axios from 'axios';
+import SearchForm from './searchForm';
 
 
 class Search extends React.Component {
@@ -8,8 +12,14 @@ class Search extends React.Component {
 
 
         return(
-            <div>
-            
+            <div className="App">
+
+                <h1>Search Flight</h1>
+
+                <p>flight info here</p>
+
+                <SearchForm/>
+                
             </div>
         );
 

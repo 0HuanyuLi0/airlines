@@ -8,7 +8,7 @@ class Reservation extends React.Component {
 
 
         return(
-            <div>
+            <div className="App">
             
             </div>
         );
