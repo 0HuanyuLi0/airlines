@@ -1,4 +1,5 @@
 import '../App.css';
+import {Route, HashRouter as Router, Link, Switch} from 'react-router-dom';
 
 import React from 'react';
 import axios from 'axios';
@@ -81,28 +82,39 @@ class Search extends React.Component {
 
         return(
             <div className="App">
-               
-                <h1>Search Flight</h1>
+                <Router>
+                    <h1>sei55 - Angel Airlines</h1>
 
-                <p>flight info here</p>
+                    <nav>
+                        {'	'}|{'	'}
+                        <Link to="/">Home</Link>
+                    </nav>
+
+                    <hr />
+                    
 
 
-                <SearchForm notifyParent={ this.postFlightDetails }/> 
+                    <SearchForm notifyParent={ this.postFlightDetails }/> 
 
-                <h5>TESTING: Show data passed from SearchForm to Search</h5>
+                    {
+                        this.state.loading
+                        ?
+                        <p>Loading Flights . . .</p>
+                        :
+                        <ul>
+                            { this.state.flights.map( f => <FlightInformation flight={ f }/> ) }
+                        </ul>
 
-                {
-                    this.state.loading
-                    ?
-                    <p>Loading Flights . . .</p>
-                    :
-                    <ul>
-                        { this.state.flights.map( f => <FlightInformation flight={ f }/> ) }
-                    </ul>
+                    }
+                    
+                    < Route exact path="/" component={ Search }/>
 
-                }
-                
 
+                    <footer>
+                        <hr />
+                        &copy; sei55 - Angel Airlines.2022
+                    </footer>
+                </Router>
             </div>
         );  // return
 
