@@ -1,0 +1,44 @@
+
+<%= form_with url:'/reservations', class:'border-form', local:true do |f| %>
+
+<select name="user_id" required>
+    <option value="" disabled selected>--Please choose a User--</option>
+
+    <%= @users.each do |user| %>
+
+    <option value=<%= user.id %>>
+        <%= user.name %>
+    </option>
+    <% end %>
+
+</select>
+
+<br><br>
+
+<%= f.number_field :row, required:true, placeholder:"Row"%>
+
+<%= f.number_field :col, required:true, placeholder:"Col"%>
+
+<br>
+
+
+
+<select name="flight_id" required>
+    <option value="" disabled selected>--Please choose a Flight--</option>
+
+    <%= @flights.each do |flight| %>
+
+    <option value=<%= flight.id %>>
+        <%= flight.flight_number %>
+    </option>
+    <% end %>
+
+</select>
+
+
+
+<br><br>
+
+<%= f.submit 'Create New Reservation'%>
+
+<% end %>

@@ -1,19 +1,27 @@
-<h3>All Airplanes</h3>
 
-<h4>New Airplane</h4>
+<h2 class="red-title">Angel Airlines</h2>
 
+<%= render partial: 'form' %>
 
-<ul>
+<h3 class="sub-title">Airlines</h3>
+<div class="col-title">
+    <p>Name</p>
+    <p>Row</p>
+    <p>Column</p>
+    <p>Seats</p>
+    <p></p>
+</div>
+
+<ul class="table">
     <% @airplanes.each do |airplane| %>
 
     <li>
-        Airplane: <%= airplane.name %>
-        <br>
-        Row: <%= airplane.seating_row %>
-        <br>
-        Column: <%= airplane.seating_column %>
-        <br>
-        <%= link_to 'Delete', "/airplanes/#{airplane.id}",method:'delete' %>
+        <p><%= airplane.name %></p>
+        <p><%= airplane.seating_row %></p>
+        <p><%= airplane.seating_column %></p>
+        <p><%= airplane.seating_column * airplane.seating_row  %></p>
+        <p><%= link_to 'Delete', "/airplanes/#{airplane.id}",method:'delete' %></p>
+        
     </li>
 
     <% end %>
