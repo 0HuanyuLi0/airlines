@@ -1,0 +1,95 @@
+
+*{
+    /* border: 1px solid green; */
+}
+body {
+    box-sizing: border-box;
+    margin: 20px auto;
+    padding: 0;
+    width: 90%;
+    max-width: 800px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav {
+    font-size: 20px;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+nav a{
+    display: inline-block;
+    text-decoration: none;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    vertical-align: middle;
+    width: 30%;
+    max-width: 500px;
+    text-align: center;
+}
+
+
+.red-title{
+    color: red;
+    font-size: 30px ;
+    margin-left: 5%;
+}
+
+.border-form{
+    border: 2px solid red;
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.border-form input,.border-form select{
+    font-size: 14px;
+    width: 110px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    line-height: 20px;
+}
+
+.border-form select{
+    width: auto;
+    padding: 3px;
+    margin-bottom: 0;
+}
+
+.border-form input[type='submit']{
+    width: auto;
+    background-color: red;
+    color: white;
+    margin-bottom: 0px;
+    padding: 5px;
+}
+
+.sub-title {
+    margin-left: 5%;
+    margin-top: 30px;
+}
+
+.col-title{
+    text-align: center;
+}
+
+.col-title p, .table p {
+    display: inline-block;
+    width: 15%;
+    text-decoration: underline;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.table {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.table p{
+    text-decoration: none;
+}

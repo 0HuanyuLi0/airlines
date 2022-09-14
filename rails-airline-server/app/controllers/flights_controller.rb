@@ -3,6 +3,7 @@ class FlightsController < ApplicationController
     def index
         @flights = Flight.all.reverse
         @airplanes = Airplane.all
+        @findAlpha
     end
 
     def create
@@ -15,11 +16,18 @@ class FlightsController < ApplicationController
        redirect_back(fallback_location:"/flights")
     end
 
+    def findAlpha numb
+        alphaArr = ("a".."z").to_a
+        alphaArr[numb-1]
+    end
+
 
     private
     def flights_params
         params.permit(:flight_number, :origin, :destination, :departure_date,:airplane_id)
     end
+
+    
 
 
 end
