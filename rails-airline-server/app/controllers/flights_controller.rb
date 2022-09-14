@@ -3,7 +3,6 @@ class FlightsController < ApplicationController
     def index
         @flights = Flight.all.reverse
         @airplanes = Airplane.all
-        @findAlpha
     end
 
     def create
