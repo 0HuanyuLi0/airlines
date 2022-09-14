@@ -1,0 +1,41 @@
+
+
+<h2 class="red-title">Angel Airlines: Flight <%= @flight.flight_number %></h2>
+
+<%= render partial: 'r_form' %>
+
+<div class="col-title">
+    <p>Name</p>
+    <p>Row</p>
+    <p>Column</p>
+    <p></p>
+</div>
+
+<ul class="table">
+    <% @reservations.each do |reservation| %>
+
+    <li>
+        <p><%= reservation.user.name %></p>
+        
+        <p><%= reservation.row %></p>
+        <p><%= @alphaArr[reservation.col-1] %></p>
+        <p><%= link_to 'Delete', "/reservations/#{reservation.id}",method:'delete' %></p>
+        
+    </li>
+
+    <% end %>
+</ul>
+
+<div class="container">
+  <% @col.times do |col|%>
+    <% @row.times do |row|%>
+        <% if @reservations.pluck(:row).include?(row) && @reservations.pluck(:col).include?(col-1)%>
+          <div class="cell filled"><%= col %></div>
+        <% else %>
+        <div class="cell"></div>
+        <% end %>
+    <% end %>
+    <br>
+  <% end %>
+
+</div>

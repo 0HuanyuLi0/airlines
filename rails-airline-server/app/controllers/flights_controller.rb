@@ -3,6 +3,11 @@ class FlightsController < ApplicationController
     def index
         @flights = Flight.all.reverse
         @airplanes = Airplane.all
+
+        respond_to do |format|
+            format.html
+            format.json { render json: @flights }
+        end
     end
 
     def create
@@ -15,11 +20,19 @@ class FlightsController < ApplicationController
        redirect_back(fallback_location:"/flights")
     end
 
-    def findAlpha numb
-        alphaArr = ("a".."z").to_a
-        alphaArr[numb-1]
-    end
 
+    def detail
+        @flight = Flight.find params[:id]
+        @airplane = @flight.airplane
+        @row = @airplane.seating_row
+        @col = @airplane.seating_column
+        @reservations = Reservation.where(flight_id:@flight.id)
+        @users = User.all
+        @alphaArr = ("A".."Z").to_a
+        puts @reservations.pluck(:row)
+        puts @reservations.pluck(:col)
+         
+    end
 
     private
     def flights_params

@@ -97,3 +97,23 @@ nav a{
 .table p{
     text-decoration: none;
 }
+
+p a {
+    color: red;
+}
+
+
+.container {
+    text-align: center;
+}
+
+.cell{
+    border: 1px solid red;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+
+.filled{
+    background-color: red;
+}
