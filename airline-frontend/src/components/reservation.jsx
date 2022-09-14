@@ -1,6 +1,16 @@
 import React from 'react';
 import './reservation.css'
 
+function Square(props) {
+  return (
+    // This is a HTML format
+    <button className="square" onClick={props.onClick}>
+      {props.value}
+    </button>
+  );
+}
+
+
 class Reservation extends React.Component {
 
     state = {
@@ -35,6 +45,11 @@ class Reservation extends React.Component {
         return rows
     }
 
+    render(){
+        return(
+            <div> {this.renderRows()} </div>
+        )
+    }
 } // class Reservation
 
 
