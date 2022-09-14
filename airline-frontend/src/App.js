@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-
+      
       <nav>
         {'\t'}{'\t'}
         <Link to="/">Home</Link>
@@ -19,12 +19,16 @@ function App() {
         {'\t'}{'\t'}
       </nav>
       <hr />
+      
+      
+      
+      
+      <Route exact path="/" component={Search}/>
 
 
-        <Search />
-        <Reservation />
+        
+      <Reservation />
 
-        <Route exact path="/" component={''}/>
 
 
       <footer>
