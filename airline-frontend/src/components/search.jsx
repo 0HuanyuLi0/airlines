@@ -1,4 +1,5 @@
 import '../App.css';
+import {Route, HashRouter as Router, Link, Switch} from 'react-router-dom';
 
 import React from 'react';
 import axios from 'axios';
@@ -12,7 +13,10 @@ function FlightInformation(props){
 
             <strong>Flight - {props.flight.name}</strong>
             <br />
-            <p>From {props.flight.origin}</p> to <p>{props.flight.destination}.</p>
+            <p> {
+                    `From ${props.flight.origin} to ${props.flight.destination}.`
+                }   
+            </p>
             
         </li>
     )
@@ -25,7 +29,7 @@ class Search extends React.Component {
         flights: [],
         loading: true,
         error: null,
-    };      //  state
+    };      //  state{}
 
     postFlightDetails = async([startLoc, endLoc]) => {
         console.log(`SearchForm:postFlightDetails()`, startLoc, endLoc);
@@ -42,57 +46,75 @@ class Search extends React.Component {
         
     }       //  postFlightDetails()
 
-    componentDidMount(){
+    componentDidMount(){                //  function invokes fetchFlights()
 
         console.log(`componentDidMount()`);
         this.fetchFlights();
         
-    }
+    }       // componentDidMount()
 
-    fetchFlights = async() => {
+    fetchFlights = async() => {         //  queries DB for flight info
 
         try {
             const response = await axios.get(RAILS_ANGEL_AIRLINES_FLIGHTS);
             console.log(`response`, response.data);
             
             this.setState({
-                secrets: response.data,
+                flights: response.data,
 
                 loading:false,
                 
-            })
+            })  //  this.setState
             
         } catch (error) {
 
             this.setState({
                 loading: false,
                 error: error
-            })
-        }
+            })  //  this.setState
 
-    }
+        }       //  catch
+
+    }           //  fetchFlights()
 
     render (){
 
 
         return(
             <div className="App">
-               
-                <h1>Search Flight</h1>
+                <Router>
+                    <h1>sei55 - Angel Airlines</h1>
 
-                <p>flight info here</p>
+                    <nav>
+                        {'	'}|{'	'}
+                        <Link to="/">Home</Link>
+                    </nav>
+
+                    <hr />
+                    
 
 
-                <SearchForm notifyParent={ this.postFlightDetails }/> 
+                    <SearchForm notifyParent={ this.postFlightDetails }/> 
 
-                <h5>TESTING: Show data passed from SearchForm to Search</h5>
+                    {
+                        this.state.loading
+                        ?
+                        <p>Loading Flights . . .</p>
+                        :
+                        <ul>
+                            { this.state.flights.map( f => <FlightInformation flight={ f }/> ) }
+                        </ul>
 
-                <div>
-                    <h2>TEST for FLIGHT INFO</h2>
-                    {/* {FlightInformation(props)} */}
-                </div>
-                
+                    }
+                    
+                    < Route exact path="/" component={ Search }/>
 
+
+                    <footer>
+                        <hr />
+                        &copy; sei55 - Angel Airlines.2022
+                    </footer>
+                </Router>
             </div>
         );  // return
 

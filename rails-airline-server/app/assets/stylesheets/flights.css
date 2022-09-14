@@ -105,15 +105,28 @@ p a {
 
 .container {
     text-align: center;
+    vertical-align: middle;
 }
 
 .cell{
     border: 1px solid red;
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     display: inline-block;
+    font-size: 15px;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 25px;
+    
 }
 
 .filled{
     background-color: red;
+    
 }
+
+.indicator{
+    border: 1px solid transparent;
+}
+
+
