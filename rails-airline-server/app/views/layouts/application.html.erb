@@ -10,6 +10,23 @@
   </head>
 
   <body>
+  <nav>
+    <%= link_to 'Planes', '/airplanes' %>
+    |
+    <%= link_to 'Flights', '/flights' %>
+    |
+    <%= link_to 'Admin', '#' %>
+    |
+    <hr>
+  </nav>
+
+  <main>
     <%= yield %>
+  </main>
+
+  <footer>
+  <hr>
+    &copy; Angel Airlines 2022
+  </footer>
   </body>
 </html>
