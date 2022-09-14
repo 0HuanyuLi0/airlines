@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-class SearchFlights extends React.Component {
+class Search extends React.Component {
 
 
     render (){
@@ -17,7 +17,7 @@ class SearchFlights extends React.Component {
     } // render
 
 
-} // class SearchFlights
+} // class Search
 
 
-export default SearchFlights;
+export default Search;
