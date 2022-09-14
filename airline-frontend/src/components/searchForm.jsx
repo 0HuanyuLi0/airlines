@@ -34,7 +34,7 @@ class SearchForm extends React.Component {
         event.preventDefault();         
         console.log(`Form submitted`, this.state.startingLocation, this.state.endingLocation);      //      check === true  
         
-        this.props.notifyParent( this.state.startingLocation, this.state.endingLocation )
+        this.props.notifyParent( [this.state.startingLocation, this.state.endingLocation] )
     };      //  handleSubmit()
 
     render (){                                  //  renders what will appear on the page when SearchForm is imported
