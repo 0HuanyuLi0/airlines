@@ -22,7 +22,10 @@
 
     <li>
         <p><%= flight.departure_date %></p>
-        <p><%= flight.flight_number %></p>
+
+        
+        <p><%= link_to flight.flight_number, "/flights/#{flight.id}" %></p>
+
         <p><%= flight.origin %> > <%= flight.destination %></p>
         <p><%= flight.airplane.name %></p>
         <p><%= flight.airplane.seating_row * flight.airplane.seating_column %></p>
@@ -35,3 +38,5 @@
 
     <% end %>
 </ul>
+
+

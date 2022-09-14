@@ -7,6 +7,7 @@ class ReservationsController < ApplicationController
     end
 
     def create
+       
         Reservation.create reservation_params
         redirect_back(fallback_location:"/reservations")
     end
