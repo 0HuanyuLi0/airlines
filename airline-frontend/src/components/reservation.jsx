@@ -3,6 +3,9 @@ import './reservation.css'
 
 class Reservation extends React.Component {
 
+    state = {
+        Square:'',
+    };
 
     renderSquare(i) {
         const highlight = this.props.highlight

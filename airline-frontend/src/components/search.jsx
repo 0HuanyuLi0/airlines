@@ -18,8 +18,11 @@ class Search extends React.Component {
 
                 <p>flight info here</p>
 
-                <SearchForm/>             
+                <SearchForm/> 
                 
+                {// <reservation/> testing only
+                 }            
+                <Reservation/>
             </div>
         );
 
