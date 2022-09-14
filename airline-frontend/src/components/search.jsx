@@ -77,7 +77,7 @@ class Search extends React.Component {
 
         return(
             <div className="App">
-
+               
                 <h1>Search Flight</h1>
 
                 <p>flight info here</p>
@@ -96,6 +96,7 @@ class Search extends React.Component {
             </div>
         );  // return
 
+            
 
     }       // render()
 
