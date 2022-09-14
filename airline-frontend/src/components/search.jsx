@@ -82,12 +82,12 @@ class Search extends React.Component {
 
         return(
             <div className="App">
-                <Router>
+                {/* <Router> */}
                     <h1>sei55 - Angel Airlines</h1>
 
                     <nav>
                         {'	'}|{'	'}
-                        <Link to="/">Home</Link>
+                        {/* <Link to="/">Home</Link> */}
                     </nav>
 
                     <hr />
@@ -107,14 +107,14 @@ class Search extends React.Component {
 
                     }
                     
-                    < Route exact path="/" component={ Search }/>
+                    {/* < Route exact path="/" component={ Search }/> */}
 
 
                     <footer>
                         <hr />
                         &copy; sei55 - Angel Airlines.2022
                     </footer>
-                </Router>
+                {/* </Router> */}
             </div>
         );  // return
 
