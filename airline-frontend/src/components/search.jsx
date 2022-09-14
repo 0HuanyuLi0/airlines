@@ -36,9 +36,21 @@ class Search extends React.Component {
         console.log(`SearchForm:postFlightDetails()`, startLoc, endLoc);
 
         try {
-            const response = await axios.post
-                (RAILS_ANGEL_AIRLINES_FLIGHTS, { content: startLoc }, { content: endLoc });
+            const response = await axios.get
+                (`http://localhost:3000/flights/search/${startLoc}+${endLoc}`);
             console.log(`Post Response`, response.data);
+            if (response.data.flights.length === 0) {
+                this.fetchFlights()
+                return
+            }
+
+            this.setState({
+                flights: response.data.flights,
+                airplanes: response.data.airplanes,
+                loading: false,
+
+            })  
+
 
         } catch (error) {
             console.log(``);
@@ -51,6 +63,7 @@ class Search extends React.Component {
 
         console.log(`componentDidMount()`);
         this.fetchFlights();
+        // setInterval(this.fetchFlights,2000)
 
     }       // componentDidMount()
 

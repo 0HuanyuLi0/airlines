@@ -1,5 +1,7 @@
 class FlightsController < ApplicationController
 
+    skip_before_action :verify_authenticity_token, raise: false
+
     def index
         @flights = Flight.all.reverse
         @airplanes = Airplane.all
@@ -14,6 +16,7 @@ class FlightsController < ApplicationController
     end
 
     def create
+        raise hell
         Flight.create flights_params
         redirect_back(fallback_location:"/flights")
     end
@@ -34,8 +37,20 @@ class FlightsController < ApplicationController
         @alphaArr = ("A".."Z").to_a
         @bookedArr = @reservations.pluck(:row).zip(@reservations.pluck(:col))
         p @bookedArr
-    
-         
+    end
+
+    def search
+
+        location =  params[:location].split('+')
+
+        flights = Flight.where(origin:location[0]).where(destination:location[1])
+        airplanes =[]
+        for f in flights do
+            airplanes.push(f.airplane)
+        end
+        
+        render json: {flights:flights, airplanes:airplanes}
+
     end
 
     private

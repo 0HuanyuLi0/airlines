@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   post '/flights' => 'flights#create'
   delete '/flights/:id' => 'flights#destroy'
 
+  get '/flights/search/:location' => 'flights#search'
   get '/flights/:id' => 'flights#detail'
+
 
   #reservations
   get '/reservations' => 'reservations#index'
