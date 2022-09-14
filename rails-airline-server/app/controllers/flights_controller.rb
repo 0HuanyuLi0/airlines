@@ -4,7 +4,13 @@ class FlightsController < ApplicationController
         @flights = Flight.all.reverse
         @airplanes = Airplane.all
 
-       render json: @flights
+        respond_to do |format|
+
+            format.html # show.html.erb
+            format.json { render json:{flights:@flights,airplanes:@airplanes}  }
+          
+        end
+       
     end
 
     def create

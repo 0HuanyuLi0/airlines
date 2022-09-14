@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Reservation from './components/reservation';
 
-import Search from './components/search';
+import App from './App'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
-  <Search />
+  <App />
+
+  // <App />
 
 );
 

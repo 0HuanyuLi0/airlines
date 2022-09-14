@@ -46,7 +46,7 @@ class Reservation extends React.Component {
     }
 
     render(){
-        return(
+        return (
             <div> {this.renderRows()} </div>
         )
     }
