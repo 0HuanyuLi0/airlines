@@ -30,9 +30,11 @@ class SearchForm extends React.Component {
         this.setState({ endingLocation: event.target.value })
     };      //  handleEndLoc()
 
-    handleSubmit = ( event ) => {               //  stops form from auto-refreshing page on submit
+    handleSubmit = ( event ) => {               //  stop form from auto-reloading & notify parent of submit
         event.preventDefault();         
-        console.log(`Form submitted`, this.state.startingLocation, this.state.endingLocation);      //      check === true        
+        console.log(`Form submitted`, this.state.startingLocation, this.state.endingLocation);      //      check === true  
+        
+        this.props.notifyParent( this.state.startingLocation, this.state.endingLocation )
     };      //  handleSubmit()
 
     render (){                                  //  renders what will appear on the page when SearchForm is imported
