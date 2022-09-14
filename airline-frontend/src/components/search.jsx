@@ -7,7 +7,7 @@ import SearchForm from './searchForm';  {/* provides form for User to search fli
 
 const RAILS_ANGEL_AIRLINES_FLIGHTS = 'http://localhost:3000/flights'
 // =======
-import Reservation from './reservation';
+
 // >>>>>>> 0ddaf72e24316655d4c690f4eb527c94821bfc75///////
 
 class Search extends React.Component {
