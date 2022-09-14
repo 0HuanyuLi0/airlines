@@ -81,36 +81,20 @@ class Search extends React.Component {
     render() {
         return (
             <div className="App">
-                {/* <Router> */}
-                    <h1>sei55 - Angel Airlines</h1>
 
-                    <nav>
-                        {'	'}|{'	'}
-                        {/* <Link to="/">Home</Link> */}
-                    </nav>
+                <SearchForm notifyParent={ this.postFlightDetails }/> 
 
-                    <hr />
-                    
-
-
-                    <SearchForm notifyParent={ this.postFlightDetails }/> 
-
-                    {
-                        this.state.loading
-                        ?
-                        <p>Loading Flights . . .</p>
-                        :
-                        <ul className='table'>
-                            {this.state.flights.map(f => <FlightInformation key={f.id} flight={f} airplane={this.state.airplanes.find(a => a.id === f.airplane_id)} />)}
-                        </ul>
+                {
+                    this.state.loading
+                    ?
+                    <p>Loading Flights . . .</p>
+                    :
+                    <ul className='table'>
+                        {this.state.flights.map(f => <FlightInformation key={f.id} flight={f} airplane={this.state.airplanes.find(a => a.id === f.airplane_id)} />)}
+                    </ul>
 
                 }
 
-                    <footer>
-                        <hr />
-                        &copy; sei55 - Angel Airlines.2022
-                    </footer>
-                {/* </Router> */}
             </div>
         );  // return
 
