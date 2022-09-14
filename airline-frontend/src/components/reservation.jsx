@@ -61,16 +61,11 @@ class Reservation extends React.Component {
     }
 
     render(){
-<<<<<<< HEAD
-        return (
-            <div> {this.renderRows()} </div>
-=======
         return(
             <div> 
                 {this.renderCols(6,10)} 
             </div>
             
->>>>>>> af4c4f44b401d56f12d70dcf2a9c26cd9c23a199
         )
     }
 } // class Reservation

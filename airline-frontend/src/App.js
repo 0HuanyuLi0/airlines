@@ -19,7 +19,7 @@ function App() {
       <Router>
 
         <Search />
-        {/* <Reservation /> */}
+        <Reservation />
 
       </Router>
       
