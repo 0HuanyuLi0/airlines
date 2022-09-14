@@ -1,15 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Reservation from './components/reservation';
+import Reservation from './components/Reservation';
 
 import Search from './components/search';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-
-  <Search />
-
+  <div>
+    <Search />
+    <Reservation />
+  </div>
 );
 
 // If you want to start measuring performance in your app, pass a function
