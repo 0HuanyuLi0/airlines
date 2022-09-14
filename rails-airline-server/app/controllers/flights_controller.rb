@@ -26,11 +26,12 @@ class FlightsController < ApplicationController
         @airplane = @flight.airplane
         @row = @airplane.seating_row
         @col = @airplane.seating_column
-        @reservations = Reservation.where(flight_id:@flight.id)
+        @reservations = Reservation.where(flight_id:@flight.id).reverse
         @users = User.all
         @alphaArr = ("A".."Z").to_a
-        puts @reservations.pluck(:row)
-        puts @reservations.pluck(:col)
+        @bookedArr = @reservations.pluck(:row).zip(@reservations.pluck(:col))
+        p @bookedArr
+    
          
     end
 
