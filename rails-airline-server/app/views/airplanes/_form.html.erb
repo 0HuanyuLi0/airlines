@@ -1,28 +1,19 @@
-<%= form_with url:'/airplanes', local:true do |f| %>
+<%= form_with url:'/airplanes',class:'border-form', local:true do |f| %>
 
 
-<%= f.label :name %>
+
+<%= f.text_field :name, required:true, placeholder:"name #" %>
+
+
+
+<%= f.number_field :seating_row, required:true, placeholder:"rows #"%>
+
+
+
+<%= f.number_field :seating_column, required:true, placeholder:"cols #"%>
+
+
 <br>
-<%= f.text_field :name %>
-<br><br>
-
-
-<%= f.label :seating_row%>
-<br>
-<%= f.number_field :seating_row%>
-<br><br>
-
-<%= f.label :seating_column%>
-<br>
-<%= f.number_field :seating_column%>
-<br><br>
-
-
-
-
-
-<br><br>
-
 <%= f.submit 'Create New Airplane'%>
 
 <% end %>
