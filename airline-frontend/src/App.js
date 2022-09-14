@@ -9,31 +9,34 @@ function App() {
     <div className="App">
       <Router>
       
-      <nav>
-        {'\t'}{'\t'}
-        <Link to="/">Home</Link>
-        {'\t'}{'\t'}
-        {'\t'}{'\t'}
-        <Link to="/">Bob</Link>
-        {'\t'}{'\t'}
-      </nav>
-      <hr />
-      
-      
-      
-      
-      <Route exact path="/" component={Search}/>
-
-
+        <header>
+          <h1>sei55 - Angel Airlines</h1>
+          <nav>
+            {'\t'}{'\t'}
+            <Link to="/">Home</Link>
+            {'\t'}{'\t'}
+            {'\t'}{'\t'}
+            <Link to="/">Bob</Link>
+            {'\t'}{'\t'}
+          </nav>
+          <hr />
+        </header>
         
-      <Reservation />
+        
+        
+        <Route component={Search}/>
+
+
+          
+        <Reservation />
 
 
 
-      <footer>
-        <hr />
-        &copy; sei55 - Angel Airlines.2022
-      </footer>
+        <footer>
+          <hr />
+          &copy; sei55 - Angel Airlines.2022
+        </footer>
+
       </Router>
 
     </div>
