@@ -36,9 +36,21 @@ class Search extends React.Component {
         console.log(`SearchForm:postFlightDetails()`, startLoc, endLoc);
 
         try {
-            const response = await axios.post
-                (RAILS_ANGEL_AIRLINES_FLIGHTS, { content: startLoc }, { content: endLoc });
+            const response = await axios.get
+                (`http://localhost:3000/flights/search/${startLoc}+${endLoc}`);
             console.log(`Post Response`, response.data);
+            if (response.data.flights.length === 0) {
+                this.fetchFlights()
+                return
+            }
+
+            this.setState({
+                flights: response.data.flights,
+                airplanes: response.data.airplanes,
+                loading: false,
+
+            })  
+
 
         } catch (error) {
             console.log(``);
@@ -51,6 +63,8 @@ class Search extends React.Component {
 
         console.log(`componentDidMount()`);
         this.fetchFlights();
+        this.fetchBookings('14')
+        // setInterval(this.fetchFlights,2000)
 
     }       // componentDidMount()
 
@@ -58,7 +72,7 @@ class Search extends React.Component {
 
         try {
             const response = await axios.get(RAILS_ANGEL_AIRLINES_FLIGHTS);
-            console.log(`response`, response.data);
+            // console.log(`response`, response.data);
 
             this.setState({
                 flights: response.data.flights,
@@ -78,11 +92,40 @@ class Search extends React.Component {
 
     }           //  fetchFlights()
 
+    fetchBookings = async (flightID) => {
+
+        try {
+            const response = await axios.get(`http://localhost:3000/bob/reservations/${flightID}`);
+            console.log(`response`, response.data);
+
+        } catch (error) {
+
+            this.setState({
+                loading: false,
+                error: error
+            })  //  this.setState
+
+        }       //  catch
+
+    }           //  fetchBookings()
+
+
+    
+
     render() {
         return (
             <div className="App">
 
-                <SearchForm notifyParent={ this.postFlightDetails }/> 
+                <h2 className='red-title'>Angel Airlines</h2>
+                <SearchForm notifyParent={this.postFlightDetails} />
+                <h3 className='sub-title'>Flights</h3>
+                <div className="col-title">
+                    <p>Date</p>
+                    <p>Flight</p>
+                    <p>From {'>'} To</p>
+                    <p>Plane</p>
+                    <p>Seats</p>
+                </div>
 
                 {
                     this.state.loading
