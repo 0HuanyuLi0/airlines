@@ -27,12 +27,24 @@
 </ul>
 
 <div class="container">
-  <% @col.times do |col|%>
-    <% @row.times do |row|%>
-        <% if @reservations.pluck(:row).include?(row) && @reservations.pluck(:col).include?(col-1)%>
-          <div class="cell filled"><%= col %></div>
+
+    
+  <% (@col+1).times do |col|%>
+    <% if col === (@col / 2 + 1) %>
+      <br>
+    <% end %>
+    <% (@row+1).times do |row|%>
+
+        <% if col === 0 && row === 0 %>
+          <div class="cell indicator"></div>
+        <% elsif col === 0 %>
+          <div class="cell indicator"><%= row %></div>
+        <% elsif row === 0 %>
+          <div class="cell indicator"><%= @alphaArr[col-1] %></div>
+        <% elsif @bookedArr.include?([row,col]) %>
+          <div class="cell filled"> </div>
         <% else %>
-        <div class="cell"></div>
+          <div class="cell"></div>
         <% end %>
     <% end %>
     <br>
