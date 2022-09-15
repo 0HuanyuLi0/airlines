@@ -2,10 +2,15 @@ import '../App.css';
 
 import React from 'react';
 import axios from 'axios';
-import SearchForm from './searchForm'; {/* provides form for User to search flights by begining and ending destination */ }
+import SearchForm from './searchForm'; 
+{/* 
+ ^^^ provides form for User to search flights by begining and ending destination 
+*/}
 
 const RAILS_ANGEL_AIRLINES_FLIGHTS = 'http://localhost:3000/flights.json'
 // import Reservation from './reservation';
+
+
 
 function FlightInformation(props) {
 
@@ -63,7 +68,7 @@ class Search extends React.Component {
 
         console.log(`componentDidMount()`);
         this.fetchFlights();
-        this.fetchBookings('14')
+        this.fetchBookings() 
         // setInterval(this.fetchFlights,2000)
 
     }       // componentDidMount()
@@ -123,27 +128,29 @@ class Search extends React.Component {
                      THIS section [126 - 133] contains the headings for flight
                      information that is imported [136-143]
                     */}
-                <h3 className='sub-title'>Flights</h3>
-                <div className="col-title">
-                    <p>Date</p>
-                    <p>Flight</p>
-                    <p>From {'>'} To</p>
-                    <p>Plane</p>
-                    <p>Seats</p>
+
+                <div>
+                    <h3 className='sub-title'>Flights</h3>
+                    <div className="col-title">
+                        <p>Date</p>
+                        <p>Flight</p>
+                        <p>From {'>'} To</p>
+                        <p>Plane</p>
+                        <p>Seats</p>
+                    </div>
+                    
+                    {
+                        // THIS section contains data of ALL flights from backend
+                        this.state.loading
+                        ?
+                        <p>Loading Flights . . .</p>
+                        :
+                        <ul className='table'>
+                            {this.state.flights.map(f => <FlightInformation key={f.id} flight={f} airplane={this.state.airplanes.find(a => a.id === f.airplane_id)} />)}
+                        </ul>
+
+                    }
                 </div>
-                
-                {
-                    // THIS section contains data of ALL flights from backend
-                    this.state.loading
-                    ?
-                    <p>Loading Flights . . .</p>
-                    :
-                    <ul className='table'>
-                        {this.state.flights.map(f => <FlightInformation key={f.id} flight={f} airplane={this.state.airplanes.find(a => a.id === f.airplane_id)} />)}
-                    </ul>
-
-                }
-
             </div>
         );  // return
 
