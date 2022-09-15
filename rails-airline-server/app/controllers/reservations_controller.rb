@@ -20,12 +20,13 @@ class ReservationsController < ApplicationController
     end
 
     def bookInfo
-        flight = Flight.find params[:id]
+        flightNumb = params[:flightNumb]
+        flight = Flight.where(flight_number: flightNumb).first
         airplane = flight.airplane
         row_total = airplane.seating_row
         col_total = airplane.seating_column
         reservations_all = Reservation.where(flight_id:flight.id).reverse
-        
+
         bookedArr = reservations_all.pluck(:row).zip(reservations_all.pluck(:col))
 
         render json: {

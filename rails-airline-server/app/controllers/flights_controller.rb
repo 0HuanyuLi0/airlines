@@ -43,7 +43,9 @@ class FlightsController < ApplicationController
 
         location =  params[:location].split('+')
 
-        flights = Flight.where(origin:location[0]).where(destination:location[1])
+        flights = Flight.where('lower(origin) =?',location[0].downcase ).where('lower(destination) =?',location[1].downcase )
+        # where(destination:location[1])
+
         airplanes =[]
         for f in flights do
             airplanes.push(f.airplane)

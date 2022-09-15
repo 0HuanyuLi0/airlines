@@ -12,7 +12,7 @@ import './reservation.css'
 import axios from 'axios';
 
 function Square(props) {
-    return (
+   return (
         // This is a HTML format
         <button className="square" id={props.seatNumber} onClick={() => props.handleClickSeat(props.seatNumber)}>
             {/* {props.seatNumber} */}
@@ -33,11 +33,11 @@ class MakeReservation extends React.Component {
     };
 
     componentDidMount() {
-        this.fetchBookings('14')
+    this.fetchBookings('87')
     }
 
 
-    fetchBookings = async (flightID = '14') => {
+    fetchBookings = async (flightID = '87') => {
         try {
             const response = await axios.get(`http://localhost:3000/bob/reservations/${flightID}`);
             console.log(`response`, response.data);
@@ -64,31 +64,12 @@ class MakeReservation extends React.Component {
 
     }
 
+
     renderSquare = (rowNumber, columnLetter) => {
         const rowAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split("")
         const columnNumber = rowAlphabet.findIndex(ele => ele === columnLetter)
 
-        function arrayAlreadyHasArray(arr, testArr){
-            for(var i = 0; i<arr.length; i++){
-                let checker = []
-                for(var j = 0; j<arr[i].length; j++){
-                    if(arr[i][j] === testArr[j]){
-                        checker.push(true)
-                    } else {
-                        checker.push(false)
-                    }
-                }
-                if (checker.every(check => check === true)){
-                    return true
-                }
-            }
-            return false
-        }
-    }
-    renderSquare = (rowNumber, columnLetter) => {
-        const rowAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split("")
-        const columnNumber = rowAlphabet.findIndex(ele => ele === columnLetter)
-
+        // two check nested arrays as include. doesnt work on nested arrays
         function arrayAlreadyHasArray(arr, testArr){
             for(var i = 0; i<arr.length; i++){
                 let checker = []
@@ -164,22 +145,19 @@ class MakeReservation extends React.Component {
 
 
 
-    render() {
+    render(){
         return (
             <div>
-                <h2>Make New Reservation</h2>
                 {this.renderCols(6, 10)}
                 <submitBooking selectedPosition={this.state.selectedSeat}/>
                 {console.log(`MakeReservation Loaded`)}
             </div>
         )
     }
+
 } // class MakeReservation
 
 
-export default MakeReservation; 
+export default MakeReservation;
 
 
-
-//1. indicators rows and columns
-//5. 
