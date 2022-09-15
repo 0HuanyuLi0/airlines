@@ -36,3 +36,51 @@
     transform: rotate(360deg);
   }
 }
+
+#flightSearchContainer{
+  position: relative;
+  display: flex;
+  flex-flow: row;
+
+
+}
+#searchFormContainer{
+
+  width: 10vw;
+  flex-shrink: 1;
+  
+}
+#locationKeysContainer{
+
+  width: 85vw;
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+
+}
+
+.searchHeader{
+
+  
+
+}
+#locationKeysList{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: flex-start;
+  text-align: left;
+  padding: 0;
+
+}
+.locationKeysItem{
+
+  position: relative;
+  list-style-type:none;
+  padding: 0 0 5px 0;
+
+
+}
+
