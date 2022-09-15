@@ -3,6 +3,7 @@ import React from 'react';
 import './App.css';
 import './css/flights.css'
 import MakeReservation from './components/MakeReservation';
+import Reservations from './components/reservations';
 import Search from './components/search';
 import {Route, HashRouter as Router, Link, Switch} from 'react-router-dom';
 
@@ -18,11 +19,12 @@ class App extends React.Component {
           <header>
             <h1>sei55 - Angel Airlines</h1>
             <nav>
-              {'\t'}{'\t'}
-              <Link to="/">Home</Link>
-              {'\t'}{'\t'}
+
               {'\t'}{'\t'}
               <Link to="/make_reservation">New Reservation</Link>
+              {'\t'}{'\t'}
+              {'\t'}{'\t'}
+              <Link to="/">Home</Link>
               {'\t'}{'\t'}
               {'\t'}{'\t'}
               <Link to="/reservations/">User Reservations</Link>
@@ -35,11 +37,11 @@ class App extends React.Component {
           
           < Route exact path="/" component={Search} />
           < Route exact path="/MakeReservation" component={MakeReservation} />
-          < Route exact path="/reservations/:user_id" component={''} />
+          < Route exact path="/reservations/" component={Reservations} />
 
 
           <hr />
-          <h2>Reservations</h2>
+          
           <MakeReservation />
 
 

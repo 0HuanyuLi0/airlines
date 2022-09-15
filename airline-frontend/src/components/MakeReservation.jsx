@@ -1,4 +1,4 @@
-// Have split what was originally 'reservations.jsx' into two seperate .jsx files"
+// Have split what was originally 'reservations.jsx' into two seperate .jsx files
 //
 // 'MakeReservation.jsx'        and         'reservations.jsx'
 //
@@ -86,6 +86,7 @@ class MakeReservation extends React.Component {
     render(){
         return(
             <div> 
+                <h2>Make New Reservation</h2>
                 {this.renderCols(6,10)} 
             </div>
         )
