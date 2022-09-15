@@ -29,19 +29,21 @@ class MakeReservation extends React.Component {
         square: '',
         selectedSeat: '',
         occupiedPositions: [],
+        // below for even handlers
         loading: true,
         error: null,
         airplane:null,
         flight:null,
         user:null
     };
-
+    
+    //AJAX request initiated from componentDidMount()
     componentDidMount() {
     this.fetchBookings(87)
     setInterval(()=>this.fetchBookings(87),1000)
     }
 
-
+    // function to fetch backend data to front end for booking 
     fetchBookings = async (flightID) => {
         try {
             const response = await axios.get(`http://localhost:3000/bob/reservations/${flightID}`);
@@ -100,19 +102,6 @@ class MakeReservation extends React.Component {
         // console.log(seatNumber);
 
         // console.log([rowNumber, columnNumber],this.state.occupiedPositions,this.state.occupiedPositions.includes([rowNumber, columnNumber]));
-
-      
-      
-
-        // const cell = (this.state.selectedSeat === seatNumber || arrayAlreadyHasArray(this.state.occupiedPositions,[rowNumber, columnNumber]))
-        //     ?
-        //     <div className='filled'></div>
-        //     :
-        //     <Square
-        //         key={seatNumber}
-        //         seatNumber={seatNumber}
-        //         handleClickSeat={this.handleClickSeat}
-        //     />
 
 
         const cell = ()=>{
