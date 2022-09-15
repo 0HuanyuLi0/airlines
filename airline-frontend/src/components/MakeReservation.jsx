@@ -84,7 +84,7 @@ class MakeReservation extends React.Component {
             }
             return false
         }
-
+    }
     renderSquare = (rowNumber, columnLetter) => {
         const rowAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split("")
         const columnNumber = rowAlphabet.findIndex(ele => ele === columnLetter)
