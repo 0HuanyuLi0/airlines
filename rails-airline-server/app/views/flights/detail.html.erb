@@ -30,11 +30,11 @@
 <div class="container">
 
   <% (@col+1).times do |col|%>
-  <!--
+  
     <% if col === (@col / 2 + 1) %>
       <br>
     <% end %>
-    -->
+
     <% (@row+1).times do |row|%>
 
         <% if col === 0 && row === 0 %>
@@ -42,7 +42,7 @@
         <% elsif col === 0 %>
           <div class="cell indicator"><%= row %></div>
         <% elsif row === 0 %>
-          <div class="cell indicator"><%= col %></div>
+          <div class="cell indicator"><%= @alphaArr[col-1] %></div>
         <% elsif @bookedArr.include?([row,col]) %>
           <div class="cell filled"> </div>
         <% else %>

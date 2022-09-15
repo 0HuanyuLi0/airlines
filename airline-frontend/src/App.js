@@ -21,13 +21,14 @@ class App extends React.Component {
             <nav>
 
               {'\t'}{'\t'}
-              <Link to="/MakeReservation">New Reservation</Link>
+              {/* <Link to="/MakeReservation">New Reservation</Link> */}
               {'\t'}{'\t'}
               {'\t'}{'\t'}
               <Link to="/">Home</Link>
               {'\t'}{'\t'}
               {'\t'}{'\t'}
-              <Link to="/reservations/">User Reservations</Link>
+              {/* <Link to="/reservations/">User Reservations</Link> */}
+              <a href="#">Kris</a>
               {'\t'}{'\t'}
             </nav>
             <hr />
@@ -37,7 +38,7 @@ class App extends React.Component {
           
           < Route exact path="/" component={Search} />
           < Route exact path="/MakeReservation" component={MakeReservation} />
-          < Route exact path="/reservations/" component={Reservations} />
+          < Route exact path="/bob/reservations/:flightNumber" component={MakeReservation} />
 
 
           <hr />

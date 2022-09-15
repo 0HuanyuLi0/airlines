@@ -39,8 +39,10 @@ class MakeReservation extends React.Component {
     
     //AJAX request initiated from componentDidMount()
     componentDidMount() {
-    this.fetchBookings(87)
-    setInterval(()=>this.fetchBookings(87),1000)
+
+    console.log(this.props.match.params.flightNumber);
+    this.fetchBookings(this.props.match.params.flightNumber)
+    setInterval(()=>this.fetchBookings(this.props.match.params.flightNumber),1000)
     }
 
     // function to fetch backend data to front end for booking 
@@ -188,6 +190,8 @@ class MakeReservation extends React.Component {
     render(){
         return (
             <div>
+
+                <h1>Booking for the flight of {this.props.match.params.flightNumber}</h1>
                 {
                     this.state.loading
                     ?
