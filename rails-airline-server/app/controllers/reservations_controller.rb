@@ -39,7 +39,6 @@ class ReservationsController < ApplicationController
             user:user
         }
 
-
     end
 
     def makeBooking
