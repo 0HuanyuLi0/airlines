@@ -8,11 +8,10 @@ import {Route, HashRouter as Router, Link, Switch} from 'react-router-dom';
 {/* 
  ^^^ provides form for User to search flights by begining and ending destination 
 */}
+import {Route, HashRouter as Router, Link, Switch} from 'react-router-dom';
 
 const RAILS_ANGEL_AIRLINES_FLIGHTS = 'http://localhost:3000/flights.json'
 // import Reservation from './reservation';
-
-
 
 function FlightInformation(props) {
 
@@ -31,7 +30,11 @@ function FlightInformation(props) {
 }
 
 
+
+
 class Search extends React.Component {
+
+
 
     state = {
         flights: [],
