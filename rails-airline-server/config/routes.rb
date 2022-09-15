@@ -23,6 +23,6 @@ Rails.application.routes.draw do
 
   get '/bob/reservations/:flightNumb' => 'reservations#bookInfo'
 
-  
+  post '/bob/reservations/:flightNumb' => 'reservations#makeBooking'
 
 end

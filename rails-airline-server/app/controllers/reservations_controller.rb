@@ -26,7 +26,7 @@ class ReservationsController < ApplicationController
         row_total = airplane.seating_row
         col_total = airplane.seating_column
         reservations_all = Reservation.where(flight_id:flight.id).reverse
-
+        user = User.last
         bookedArr = reservations_all.pluck(:row).zip(reservations_all.pluck(:col))
 
         render json: {
@@ -35,17 +35,29 @@ class ReservationsController < ApplicationController
             row_total:row_total,
             col_total:col_total,
             reservations_all:reservations_all,
-            bookedArr:bookedArr
+            bookedArr:bookedArr,
+            user:user
         }
 
 
     end
 
+    def makeBooking
+        puts "==============="
+        puts reservation_params
+        puts "==============="
+
+        Reservation.create! reservation_params
+        redirect_back(fallback_location:"/reservations")
+
+    end
 
     private
     def reservation_params
         params.permit(:user_id, :flight_id, :row, :col)
     end
+
+   
 
 
 end

@@ -11,6 +11,7 @@ import React from 'react';
 import './reservation.css'
 import axios from 'axios';
 
+
 function Square(props) {
    return (
         // This is a HTML format
@@ -29,20 +30,27 @@ class MakeReservation extends React.Component {
         selectedSeat: '',
         occupiedPositions: [],
         loading: true,
-        error: null
+        error: null,
+        airplane:null,
+        flight:null,
+        user:null
     };
 
     componentDidMount() {
-    this.fetchBookings('87')
+    this.fetchBookings(87)
+    setInterval(()=>this.fetchBookings(87),1000)
     }
 
 
-    fetchBookings = async (flightID = '87') => {
+    fetchBookings = async (flightID) => {
         try {
             const response = await axios.get(`http://localhost:3000/bob/reservations/${flightID}`);
             console.log(`response`, response.data);
             this.setState({
                 occupiedPositions: response.data.bookedArr,
+                airplane: response.data.airplane,
+                flight:response.data.flight,
+                user:response.data.user,
                 loading: false
             })
 
@@ -96,17 +104,33 @@ class MakeReservation extends React.Component {
       
       
 
-        const cell = (this.state.selectedSeat === seatNumber || arrayAlreadyHasArray(this.state.occupiedPositions,[rowNumber, columnNumber]))
-            ?
-            <div className='filled'></div>
-            :
-            <Square
-                key={seatNumber}
-                seatNumber={seatNumber}
-                handleClickSeat={this.handleClickSeat}
-            />
+        // const cell = (this.state.selectedSeat === seatNumber || arrayAlreadyHasArray(this.state.occupiedPositions,[rowNumber, columnNumber]))
+        //     ?
+        //     <div className='filled'></div>
+        //     :
+        //     <Square
+        //         key={seatNumber}
+        //         seatNumber={seatNumber}
+        //         handleClickSeat={this.handleClickSeat}
+        //     />
 
-        return cell
+
+        const cell = ()=>{
+            if (arrayAlreadyHasArray(this.state.occupiedPositions,[rowNumber, columnNumber])) {
+                return <div className='filled'></div>
+            }else if(this.state.selectedSeat === seatNumber){
+                return <div className='select'></div>
+            }else{
+                return <Square
+                        key={seatNumber}
+                        seatNumber={seatNumber}
+                        handleClickSeat={this.handleClickSeat}
+                    />
+            }
+        }
+
+
+        return cell()
     }
 
     // square to make xx rows
@@ -143,13 +167,46 @@ class MakeReservation extends React.Component {
         )
     }
 
+    postBooking= async (selectedSeat) => {
+        const colLetter = selectedSeat.slice(-1)
+        const row = Number(selectedSeat.slice(0,-1))
+        const rowAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split("")
+
+        const col = Number(rowAlphabet.findIndex(ele => ele === colLetter))
+
+        console.log([row,col]);
+
+        try{
+            const response = await axios.post(`http://localhost:3000/bob/reservations/${this.state.flight.flight_number}`,{
+                user_id:this.state.user.id,
+                flight_id:this.state.flight.id,
+                row:row,
+                col:col
+            });
+
+            console.log(response);
+        }catch(err){
+            this.setState({
+                loading: false,
+                error: err
+            })  
+        }
+
+
+    }
 
 
     render(){
         return (
             <div>
-                {this.renderCols(6, 10)}
-                <submitBooking selectedPosition={this.state.selectedSeat}/>
+                {
+                    this.state.loading
+                    ?
+                    <p>Loading....</p>
+                    :
+                   this.renderCols(this.state.airplane.seating_column, this.state.airplane.seating_row)
+                }
+                <button onClick={()=>this.postBooking(this.state.selectedSeat)}>Book</button>
             </div>
         )
     }
