@@ -1,3 +1,12 @@
+// Have split what was originally 'reservations.jsx' into two seperate .jsx files"
+//
+// 'MakeReservation.jsx'        and         'reservations.jsx'
+//
+// The purpose of THIS file [MakeReservation.jsx] is to handle all of the 
+// function associated with booking/reserving of new flights. 
+//      [Purpose of 'reservations.jsx' is now to act as a quick referral
+//      for the user to view existing bookings]
+
 import React from 'react';
 import './reservation.css'
 
