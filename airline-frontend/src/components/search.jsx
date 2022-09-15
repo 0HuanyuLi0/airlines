@@ -3,14 +3,14 @@ import '../App.css';
 import React from 'react';
 import axios from 'axios';
 import SearchForm from './searchForm'; 
+
 {/* 
  ^^^ provides form for User to search flights by begining and ending destination 
 */}
+import {Route, HashRouter as Router, Link, Switch} from 'react-router-dom';
 
 const RAILS_ANGEL_AIRLINES_FLIGHTS = 'http://localhost:3000/flights.json'
 // import Reservation from './reservation';
-
-
 
 function FlightInformation(props) {
 
@@ -28,7 +28,11 @@ function FlightInformation(props) {
 }
 
 
+
+
 class Search extends React.Component {
+
+
 
     state = {
         flights: [],
@@ -120,7 +124,7 @@ class Search extends React.Component {
     render() {
         return (
             <div className="App">
-
+                <Router/>
                 <div id="flightSearchContainer">
                     <SearchForm notifyParent={this.postFlightDetails} id="searchFormContainer"/>
                     <div id="locationKeysContainer">
@@ -164,7 +168,7 @@ class Search extends React.Component {
 
                     }
                 </div>
-
+                <Router/>
             </div>
         );  // return
 
