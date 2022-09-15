@@ -31,7 +31,9 @@ class App extends React.Component {
           
           
           <Route component={Search}/>
-  
+          
+          <hr />
+          <h2>Reservations</h2>
           <Reservation />
 
 
