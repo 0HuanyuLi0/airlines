@@ -16,7 +16,7 @@ class FlightsController < ApplicationController
     end
 
     def create
-        raise hell
+    
         Flight.create flights_params
         redirect_back(fallback_location:"/flights")
     end

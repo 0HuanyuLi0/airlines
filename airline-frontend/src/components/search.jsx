@@ -71,8 +71,8 @@ class Search extends React.Component {
 
         console.log(`componentDidMount()`);
         this.fetchFlights();
-        this.fetchBookings()
-        // setInterval(this.fetchFlights,2000)
+        // this.fetchBookings()
+        setInterval(this.fetchFlights,2000)
 
     }       // componentDidMount()
 
