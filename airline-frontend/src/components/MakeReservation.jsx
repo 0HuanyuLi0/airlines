@@ -153,8 +153,18 @@ class MakeReservation extends React.Component {
             </div>
         )
     }
+<<<<<<< HEAD
 
 } // class MakeReservation
 
 
 export default MakeReservation;
+=======
+
+} // class MakeReservation
+
+
+export default MakeReservation;
+
+
+>>>>>>> 2fdfa340f53b3fb8b4c43c1f1f1c9d4d1bf6adf5
