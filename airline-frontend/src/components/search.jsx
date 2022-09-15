@@ -118,6 +118,11 @@ class Search extends React.Component {
 
                 
                 <SearchForm notifyParent={this.postFlightDetails} />
+
+                    {/*
+                     THIS section [126 - 133] contains the headings for flight
+                     information that is imported [136-143]
+                    */}
                 <h3 className='sub-title'>Flights</h3>
                 <div className="col-title">
                     <p>Date</p>
@@ -126,8 +131,9 @@ class Search extends React.Component {
                     <p>Plane</p>
                     <p>Seats</p>
                 </div>
-
+                
                 {
+                    // THIS section contains data of ALL flights from backend
                     this.state.loading
                     ?
                     <p>Loading Flights . . .</p>

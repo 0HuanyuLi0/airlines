@@ -1,3 +1,12 @@
+// Have split what was originally 'reservations.jsx' into two seperate .jsx files
+//
+// 'MakeReservation.jsx'        and         'reservations.jsx'
+//
+// The purpose of THIS file [MakeReservation.jsx] is to handle all of the 
+// function associated with booking/reserving of new flights. 
+//      [Purpose of 'reservations.jsx' is now to act as a quick referral
+//      for the user to view existing bookings]
+
 import React from 'react';
 import './reservation.css'
 import axios from 'axios';
@@ -13,9 +22,7 @@ function Square(props) {
 }
 
 
-
-
-class Reservation extends React.Component {
+class MakeReservation extends React.Component {
 
     state = {
         square: '',
@@ -56,6 +63,27 @@ class Reservation extends React.Component {
 
 
     }
+
+    renderSquare = (rowNumber, columnLetter) => {
+        const rowAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split("")
+        const columnNumber = rowAlphabet.findIndex(ele => ele === columnLetter)
+
+        function arrayAlreadyHasArray(arr, testArr){
+            for(var i = 0; i<arr.length; i++){
+                let checker = []
+                for(var j = 0; j<arr[i].length; j++){
+                    if(arr[i][j] === testArr[j]){
+                        checker.push(true)
+                    } else {
+                        checker.push(false)
+                    }
+                }
+                if (checker.every(check => check === true)){
+                    return true
+                }
+            }
+            return false
+        }
 
     renderSquare = (rowNumber, columnLetter) => {
         const rowAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split("")
@@ -139,15 +167,16 @@ class Reservation extends React.Component {
     render() {
         return (
             <div>
+                <h2>Make New Reservation</h2>
                 {this.renderCols(6, 10)}
                 <submitBooking selectedPosition={this.state.selectedSeat}/>
             </div>
         )
     }
-} // class Reservation
+} // class MakeReservation
 
 
-export default Reservation;
+export default MakeReservation; 
 
 
 
