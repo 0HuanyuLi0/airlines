@@ -12,7 +12,7 @@ function Square(props) {
 }
 
 
-class Reservation extends React.Component {
+class MakeReservation extends React.Component {
 
     state = {
         square:'',
@@ -81,10 +81,10 @@ class Reservation extends React.Component {
             </div>
         )
     }
-} // class Reservation
+} // class MakeReservation
 
 
-export default Reservation; 
+export default MakeReservation; 
 
 
 
