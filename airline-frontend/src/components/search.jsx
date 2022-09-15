@@ -5,6 +5,7 @@ import axios from 'axios';
 import SearchForm from './searchForm';
 import {Route, HashRouter as Router, Link, Switch} from 'react-router-dom';
 
+
 {/* 
  ^^^ provides form for User to search flights by begining and ending destination 
 */}
@@ -75,8 +76,8 @@ class Search extends React.Component {
 
         console.log(`componentDidMount()`);
         this.fetchFlights();
-        this.fetchBookings()
-        // setInterval(this.fetchFlights,2000)
+        // this.fetchBookings()
+        setInterval(this.fetchFlights,2000)
 
     }       // componentDidMount()
 
