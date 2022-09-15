@@ -121,16 +121,29 @@ class Search extends React.Component {
         return (
             <div className="App">
 
-                
-                <SearchForm notifyParent={this.postFlightDetails} />
-
-                    {/*
-                     THIS section [126 - 133] contains the headings for flight
-                     information that is imported [136-143]
-                    */}
+                <div id="flightSearchContainer">
+                    <SearchForm notifyParent={this.postFlightDetails} id="searchFormContainer"/>
+                    <div id="locationKeysContainer">
+                        <h2> Available Flights </h2>
+                        <p id="locationKeysInstructions">
+                            To use <strong>Search Flights</strong>, enter the desired Airport Designation Code into either the 'From' field or the 'To' field.
+                        </p>
+                        <h5 id="locationKeyHeader"> ANGEL AIRLINES AVAILABLE FLIGHTS:</h5>
+                        <ul class="locationKeysList" id="availableFlightList">
+                            <li>Departing: JFK - Arriving: LAX</li>
+                            <li>Departing: JFK - Arriving: SFO</li>
+                        </ul>
+                        <h5 id="locationKeyHeader"><strong>LOCATIONS KEY</strong></h5>
+                        <ul class="locationKeysList">
+                            <li class="locationKeysItem">JFK - <em>John F. Kennedy International Airport, New York, New York City</em></li>
+                            <li class="locationKeysItem">LAX - <em>Los Angeles International Airport, Los Angeles, California</em></li>
+                            <li class="locationKeysItem">SFO - <em>San Francisco International Airport, San Francisco, California</em></li>
+                        </ul>
+                    </div>
+                </div>
 
                 <div>
-                    <h3 className='sub-title'>Flights</h3>
+                    <h2 className='sub-title'>Flights</h2>
                     <div className="col-title">
                         <p>Date</p>
                         <p>Flight</p>
@@ -151,6 +164,7 @@ class Search extends React.Component {
 
                     }
                 </div>
+
             </div>
         );  // return
 

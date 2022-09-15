@@ -36,3 +36,59 @@
     transform: rotate(360deg);
   }
 }
+
+#flightSearchContainer{
+  position: relative;
+  display: flex;
+  flex-flow: row;
+
+
+}
+#searchFormContainer{
+
+  width: 10vw;
+  flex-shrink: 1;
+  
+}
+#locationKeysContainer{
+
+  width: 85vw;
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+
+}
+
+#locationKeyHeader{
+
+  padding: 0;
+  margin: 0px ;
+
+}
+.locationKeysList{
+
+  font-size: 10pt;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: flex-start;
+  text-align: left;
+  padding: 0;
+  list-style-type: none;
+}
+.locationKeysItem{
+
+  position: relative;
+  padding: 0 0 2px 0;
+
+
+}
+#locationKeysInstructions{
+  padding: 0 0 10px 0;
+  margin: 0px;
+}
+#availableFlightList{
+  text-align: center;
+}

@@ -42,7 +42,7 @@ class SearchForm extends React.Component {
 
         return(
             <form onSubmit={this.handleSubmit} className="border-form">
-               <h4>Search Flights</h4>
+               <h2 class="searchHeader">Search Flights</h2>
                 <input type="text" placeholder='From' onChange={this.handleStartLoc}/>
                 {' '}
                 <input type="text" placeholder='To' onChange={this.handleEndLoc}/>

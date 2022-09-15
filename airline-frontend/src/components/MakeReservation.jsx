@@ -150,6 +150,7 @@ class MakeReservation extends React.Component {
             <div>
                 {this.renderCols(6, 10)}
                 <submitBooking selectedPosition={this.state.selectedSeat}/>
+                {console.log(`MakeReservation Loaded`)}
             </div>
         )
     }
