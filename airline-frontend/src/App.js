@@ -21,7 +21,7 @@ class App extends React.Component {
             <nav>
 
               {'\t'}{'\t'}
-              <Link to="/make_reservation">New Reservation</Link>
+              <Link to="/MakeReservation">New Reservation</Link>
               {'\t'}{'\t'}
               {'\t'}{'\t'}
               <Link to="/">Home</Link>
@@ -42,7 +42,7 @@ class App extends React.Component {
 
           <hr />
           
-          <MakeReservation />
+          
 
 
 

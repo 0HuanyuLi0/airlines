@@ -215,5 +215,3 @@ class MakeReservation extends React.Component {
 
 
 export default MakeReservation;
-
-
