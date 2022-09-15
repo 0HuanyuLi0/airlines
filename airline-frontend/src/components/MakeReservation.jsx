@@ -199,7 +199,7 @@ class MakeReservation extends React.Component {
                     :
                    this.renderCols(this.state.airplane.seating_column, this.state.airplane.seating_row)
                 }
-                <button onClick={()=>this.postBooking(this.state.selectedSeat)}>Book</button>
+                <button onClick={()=>this.postBooking(this.state.selectedSeat)}>{`${this.state.selectedSeat} Book Now`}</button>
             </div>
         )
     }
