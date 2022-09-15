@@ -8,7 +8,6 @@ import {Route, HashRouter as Router, Link, Switch} from 'react-router-dom';
 {/* 
  ^^^ provides form for User to search flights by begining and ending destination 
 */}
-import {Route, HashRouter as Router, Link, Switch} from 'react-router-dom';
 
 const RAILS_ANGEL_AIRLINES_FLIGHTS = 'http://localhost:3000/flights.json'
 // import Reservation from './reservation';
@@ -16,6 +15,7 @@ const RAILS_ANGEL_AIRLINES_FLIGHTS = 'http://localhost:3000/flights.json'
 function FlightInformation(props) {
 
     return (
+
         <li>
 
             <p>{props.flight.departure_date}</p>
@@ -26,6 +26,7 @@ function FlightInformation(props) {
             <p>{props.airplane.seating_column * props.airplane.seating_row}</p>
 
         </li>
+    
     )
 }
 
@@ -104,19 +105,22 @@ class Search extends React.Component {
     }           //  fetchFlights()
 
     fetchBookings = async (flightID) => {
-
-        try {
-            const response = await axios.get(`http://localhost:3000/bob/reservations/${flightID}`);
-            console.log(`response`, response.data);
-
-        } catch (error) {
-
-            this.setState({
-                loading: false,
-                error: error
-            })  //  this.setState
-
-        }       //  catch
+        
+        if (this.state.loading === false) {
+            try {
+                const response = await axios.get(`http://localhost:3000/bob/reservations/${flightID}`);
+                console.log(`response`, response.data);
+    
+            } catch (error) {
+    
+                this.setState({
+                    loading: false,
+                    error: error
+                })  //  this.setState
+    
+            }       //  catch
+        } 
+   
 
     }           //  fetchBookings()
 
@@ -129,6 +133,10 @@ class Search extends React.Component {
                 <Router>
                     <div id="flightSearchContainer">
                         <SearchForm notifyParent={this.postFlightDetails} id="searchFormContainer" />
+                        {/*
+                            *****       REMOVED AS PER DANIEL'S REQUEST        *****
+
+
                         <div id="locationKeysContainer">
                             <h2> Available Flights </h2>
                             <p id="locationKeysInstructions">
@@ -145,10 +153,16 @@ class Search extends React.Component {
                                 <li className="locationKeysItem">LAX - <em>Los Angeles International Airport, Los Angeles, California</em></li>
                                 <li className="locationKeysItem">SFO - <em>San Francisco International Airport, San Francisco, California</em></li>
                             </ul>
-                        </div>
+                        </div> 
+                        
+                            *****       REMOVED AS PER DANIEL'S REQUEST        *****
+                        
+                        
+                        */}
                     </div>
 
-                    <div>
+                    {/* <div>
+                            *****       REMOVED AS PER DANIEL'S REQUEST        *****
                         
 
                         <h2 className='sub-title'>Flights</h2>
@@ -171,7 +185,20 @@ class Search extends React.Component {
                                 </ul>
 
                         }
-                    </div>
+                    </div> 
+
+                            *****       REMOVED AS PER DANIEL'S REQUEST        *****
+                    */}
+    
+                    
+                    <ul className='table'>
+                        {this.state.flights.map(f => <FlightInformation key={f.id} flight={f} airplane={this.state.airplanes.find(a => a.id === f.airplane_id)} />)}
+                    </ul>
+                    {/* <ul>
+                        <li>
+                            <p>< Link to={`/bob/reservations/${this.state.flights.flight_number}`}>{`${this.state.airplanes.}`}</Link></p>
+                        </li>
+                    </ul> */}
                 </Router>
 
 

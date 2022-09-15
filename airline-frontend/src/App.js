@@ -41,7 +41,6 @@ class App extends React.Component {
           < Route exact path="/bob/reservations/:flightNumber" component={MakeReservation} />
 
 
-          <hr />
           
           
 
