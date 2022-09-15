@@ -33,11 +33,11 @@ class MakeReservation extends React.Component {
     };
 
     componentDidMount() {
-    this.fetchBookings('14')
+    this.fetchBookings()
     }
 
 
-    fetchBookings = async (flightID = '14') => {
+    fetchBookings = async (flightID = '87') => {
         try {
             const response = await axios.get(`http://localhost:3000/bob/reservations/${flightID}`);
             console.log(`response`, response.data);
@@ -153,18 +153,8 @@ class MakeReservation extends React.Component {
             </div>
         )
     }
-<<<<<<< HEAD
 
 } // class MakeReservation
 
 
 export default MakeReservation;
-=======
-
-} // class MakeReservation
-
-
-export default MakeReservation;
-
-
->>>>>>> 2fdfa340f53b3fb8b4c43c1f1f1c9d4d1bf6adf5
